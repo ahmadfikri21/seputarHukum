@@ -1,0 +1,310 @@
+/* ===== Global ===== */
+*{
+    font-family: 'Chaparral Pro',sans-serif;
+    margin: 0px;
+    padding: 0px;
+}
+
+.active{
+    border-bottom: 5px #00BD56 solid;
+}
+
+.element-form{
+    margin-bottom: 15px;
+}
+
+.element-form label{
+    display: block;
+}
+
+.element-form span{
+    display: block;
+}
+
+.element-form span input[type=text], input[type=password], textarea, select{
+    width:100%;
+    padding:5px;
+    box-sizing: border-box;
+    font-size: 20px;
+}
+
+.element-form span input[type=submit]{
+    background: #1A472F;
+    border: none;
+    color: white;
+    padding: 7px 20px;
+    border-radius: 3px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.element-form span input[type=submit]:hover{
+    background: #207DFF;
+}
+
+.notice-komentar{
+    background: #88F2B8;
+    color: #1A472F;
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: row;
+}
+
+.notice-komentar p{
+    flex: 1;
+}
+
+.box-kategori{
+    background: #C4C4C4;
+    display: block;
+    padding: 15px;
+}
+
+.box-kategori a{
+    text-decoration: none;
+    color: black;
+}
+/* ======= Login.php ======= */
+.background-login{
+    background: #00BD56;
+    min-height: 768px;
+    position: relative;
+}
+
+.container-login{
+    position: absolute;
+    width: 40%;
+    top:20%;
+    left: 30%;
+}
+
+.header-login{
+    position: relative;
+    text-align: center;
+}
+
+.header-login h1{
+    font-weight: normal;
+}
+
+.header-login h1 a{
+    color: white;
+    text-decoration: none;
+    font-weight: normal;
+}
+
+#frame-login{
+    background: #F9FD50;
+    padding: 20px;
+    margin: 10px auto;
+    border-radius: 10px;
+}
+
+#frame-login h2{
+    font-weight: normal;
+    text-align: center;
+    font-size: 36px;
+}
+
+#frame-login input[type="text"],#frame-login input[type="password"]{
+    border: none;
+    border-radius: 5px;
+}
+
+#frame-login input[type="submit"]{
+    background: #207DFF;
+    display: block;
+    width: 100%;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+#frame-login input[type="submit"]:hover{
+    background: #00BD56;
+}
+
+/* ======= Index.php ======= */
+#header{
+    text-align: center;
+    background: #00BD56;
+    color: #ffffff;
+    font-size: 28px;
+    padding: 20px;
+}
+
+#header a{
+    text-decoration: none;
+    color: white;
+}
+
+#header a h1{
+    font-weight: normal;
+}
+
+#navbar{
+    background:#F9FD50 ;
+    text-align: center;
+}
+
+#navbar ul{
+    padding: 5px;
+}
+
+#navbar ul li{
+    display: inline;
+    margin: 75px;
+}
+
+#navbar ul li a{
+    text-decoration: none;
+    font-size: 20px;
+    color: #000000;
+}
+
+#navbar ul li a:hover{
+    border-bottom: 5px #00BD56 solid;
+}
+
+#footer{
+    background: #1A472F;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px;
+}
+
+.container{
+    width: 90%;
+    margin: 10px auto;
+}
+
+/* ====== Home ====== */
+.frame-home{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    padding: 10px;
+}
+
+.frame-home .kiri{
+    text-align: justify;
+}
+
+.frame-home .kiri p{
+    font-size: 20px;
+}
+
+.frame-home .kiri h1{
+    font-weight: normal;
+}
+
+.frame-home .kanan{
+    margin-left:20px ;
+}
+
+.frame-home .kanan .list-artikel-terbaru{
+    list-style: none;
+    border-bottom: solid 1px #000000;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+.frame-home .kanan .list-artikel-terbaru li:nth-child(2){
+    color: gray;
+}
+
+.frame-home .kanan .list-artikel-terbaru li:nth-child(3) a{
+    text-decoration: none;
+    color: #00BD56;
+}
+
+.frame-home .kanan .list-artikel-terbaru .list-judul{
+    font-weight: bold;
+    color: #00BD56;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.frame-home .kanan .list-artikel-terbaru .list-judul:hover,.frame-home .kanan .list-artikel-terbaru li:nth-child(3) a:hover{
+    color: #207DFF;
+}
+
+/* ====== Artikel ====== */
+.header-page{
+    background: #88F2B8;
+    padding: 20px 10px;
+}
+
+.header-page h2{
+    font-size: 48px;
+    font-weight: normal;
+    margin-bottom: 10px;
+}
+
+.header-page ul li{
+    display: inline-block;
+    list-style: none;
+    margin-right: 40px;
+}
+
+.frame-komentar{
+    background:#00BD56;
+    padding: 10px;
+}
+
+.frame-komentar h2{
+    font-size: 36px;
+    font-weight: normal;
+}
+
+.komentar{
+    border-top: 1px solid #ffffff;
+    padding: 10px;
+    margin: 10px;
+}
+
+.komentar label:nth-child(1){
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.komentar label:nth-child(3){
+    font-size: 14px;
+}
+
+.komentar p{
+    font-size: 18px;
+}
+
+.frame-komentar label{
+    font-weight: normal;
+    font-size: 20px;
+}
+
+/* ====== list Artikel ====== */
+
+.box-artikel{
+    padding: 10px;
+    border-bottom: 1px solid #00BD56;
+    margin: 5px;
+}
+
+.box-artikel label:nth-child(1){
+    font-size: 30px;
+    display: block;
+}
+
+.box-artikel label:nth-child(2),.box-artikel label:nth-child(3){
+    display: inline;
+    margin-right: 5px;
+    color: gray;
+    font-size: 14px;
+}
+
+.link-readmore{
+    display: inline-block;
+    text-decoration: none;  
+    color: #00BD56;
+}
+
+.link-readmore:hover{
+    color: #207DFF;
+}

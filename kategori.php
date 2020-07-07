@@ -1,3 +1,10 @@
+<?php
+    $pagination = isset($_GET['pagination']) ? $_GET['pagination'] : 1;
+    
+    // pagination
+    $data_per_halaman = 10;
+    $mulai_dari = ($pagination - 1) * $data_per_halaman;
+?>
 <div class="header-page">
     <div class="container">
         <h2>Kategori</h2>
@@ -5,7 +12,7 @@
 </div>
 <section id="section-kategori">
     <?php
-        $statementKategori = $conn->prepare("SELECT*FROM kategori");
+        $statementKategori = $conn->prepare("SELECT*FROM kategori LIMIT $mulai_dari,$data_per_halaman");
         $statementKategori->execute();
         $result = $statementKategori->fetchAll(PDO::FETCH_ASSOC);
 
@@ -21,3 +28,12 @@
         
     ?>
 </section>
+<div class="container">
+    <?php
+        $statementHitungKategori = $conn->prepare("SELECT*FROM kategori");
+        $statementHitungKategori->execute();
+        $resultH = $statementHitungKategori->fetchAll(PDO::FETCH_ASSOC);
+            
+        pagination($resultH,$data_per_halaman,$pagination,"index.php?page=kategori");
+    ?>
+</div>

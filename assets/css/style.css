@@ -33,6 +33,7 @@
     border: none;
     color: white;
     padding: 7px 20px;
+    margin: 10px 0;
     border-radius: 3px;
     font-size: 16px;
     cursor: pointer;
@@ -42,7 +43,7 @@
     background: #207DFF;
 }
 
-.notice-komentar{
+.notice-sukses{
     background: #88F2B8;
     color: #1A472F;
     padding: 10px 20px;
@@ -50,7 +51,19 @@
     flex-direction: row;
 }
 
-.notice-komentar p{
+.notice-sukses p{
+    flex: 1;
+}
+
+.notice-gagal{
+    background: salmon;
+    color: red;
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: row;
+}
+
+.notice-gagal p{
     flex: 1;
 }
 
@@ -64,6 +77,43 @@
     text-decoration: none;
     color: black;
 }
+
+.button-hapus{
+    background: red;
+    color: white;
+    padding: 7px 10px;
+    border-radius: 5px;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.button-readmore{
+    text-decoration: none;
+    background: #207DFF;
+    padding: 7px 10px;
+    color: white;
+    border-radius: 5px;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.pagination-links{
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+    margin: 10px;
+    background: #1A472F;
+}
+
+.pagination-links:hover{
+    background: #207DFF;
+}
+
+.active-pagination{
+    background: #207DFF;
+}
+
 /* ======= Login.php ======= */
 .background-login{
     background: #00BD56;
@@ -186,10 +236,12 @@
 
 .frame-home .kiri{
     text-align: justify;
+    word-break: break-word;
 }
 
 .frame-home .kiri p{
     font-size: 20px;
+    text-indent: 50px;
 }
 
 .frame-home .kiri h1{
@@ -307,4 +359,99 @@
 
 .link-readmore:hover{
     color: #207DFF;
+}
+
+/* ====== Tulis Artikel ====== */
+.header-tulis-artikel{
+    font-weight: normal;
+    font-size: 36px;
+    margin: 20px 0;
+}
+
+/* ====== Data Artikel ====== */
+.header-data-artikel{
+    display: flex;
+    margin: 20px 0;
+}
+
+.header-data-artikel form{
+    flex: 1;
+}
+
+.header-data-artikel .box-tambah{
+    flex: 2;
+}
+
+.header-data-artikel h2{
+    flex: 1;
+    font-weight: normal;
+    font-size: 36px;
+    align-self: center;
+}
+
+.header-data-artikel form label{
+    display: block;
+}
+
+.header-data-artikel form span{
+    display: flex;
+}
+
+.header-data-artikel form span input[type="text"]{
+    margin-right: 10px;
+    height: 30px;
+}
+
+.header-data-artikel form span input[type="submit"]{
+    margin: 0px;
+    margin-right: 10px;
+    height: 30px;
+}
+
+.header-data-artikel form span input[type="submit"]:hover{
+    background: #207DFF;
+}
+
+/* ====== Data Kategori ====== */
+.h2-header{
+    font-weight: normal;
+    font-size: 36px;
+}
+
+.table-data{
+    border-spacing: 0px;
+    width: 100%;
+    text-align: center;
+}
+
+.table-data tr{
+    background: #ECE6E6;
+}
+
+.table-data tr:nth-child(1){
+    background: #88F2B8;
+}
+
+.table-data tr td,.table-data tr th{
+    padding: 10px 20px;
+    font-weight: normal;
+}
+
+.box-tambah{
+    text-align: right;
+    margin: 10px;
+    margin-bottom: 20px;
+}
+
+.box-tambah a{
+    background: #1A472F;
+    padding: 10px 7px;
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 5px;
+}
+
+.box-tambah a:hover{
+    background: #207DFF;
 }

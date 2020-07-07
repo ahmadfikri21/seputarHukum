@@ -4,7 +4,7 @@
     $noticeKomentar = "";
 
     if($notice == "komentar"){
-        $noticeKomentar = "<div class='notice-komentar'><p>Komentar anda berhasil dipost</p><span class='notice-close'>x</span></div>";
+        $noticeKomentar = "<div class='notice notice-sukses'><p>Komentar anda berhasil dipost</p><span class='notice-close'>x</span></div>";
     }
 
     if($id_artikel):
@@ -83,7 +83,7 @@
             }
         ?>
         <h2>Tambahkan Komentar</h2>
-        <form action="<?= BASE_URL.'proses_komentar.php?id_artikel='.$id_artikel.'' ?>" method="POST">
+        <form action="<?= BASE_URL.'proses/proses_komentar.php?id_artikel='.$id_artikel.'' ?>" method="POST">
             <div class='element-form'>
                 <label>Nama</label>
                 <span><input type="text" name='nama' placeholder='Nama'></span>

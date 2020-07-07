@@ -1,5 +1,17 @@
 <?php
     include_once("function/helper.php");
+    
+    $notice = isset($_GET['notice']) ? $_GET['notice'] : false;
+    $noticeLogin = "";
+
+    if($notice == "login-gagal"){
+        $noticeLogin = "<div class='notice notice-gagal'><p>Username atau password Salah!</p><span class='notice-close'>x</span></div>";
+    }else if($notice == "logout-sukses"){
+        $noticeLogin = "<div class='notice notice-sukses'><p>Logout Sukses !</p><span class='notice-close'>x</span></div>";
+    }else if($notice == "email" || $notice == "password"){
+        $noticeLogin = "<div class='notice notice-gagal'><p>Kolom tidak boleh kosong</p><span class='notice-close'>x</span></div>";
+    }
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,7 +29,8 @@
             </header>
             <div id="frame-login">
                 <h2>Login Admin</h2>
-                <form action="<?= BASE_URL.'proses_login.php' ?>" method="post">
+                <?= $noticeLogin ?>
+                <form action="<?= BASE_URL.'proses_login.php' ?>" method="POST">
                     <div class='element-form'>
                         <label>E-mail</label>
                         <span><input type="text" name='email' placeholder='E-mail'></span>
@@ -32,5 +45,6 @@
                 </form>
             </div>
     </div>
+    <script src="assets/js/app.js"></script>
 </body>
 </html>

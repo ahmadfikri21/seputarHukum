@@ -1,8 +1,10 @@
-const noticeKomentar = document.querySelector(".notice-komentar")
+const noticeSukses = document.querySelector(".notice");
 const noticeClose = document.querySelector(".notice-close");
 
-noticeClose.addEventListener("click",closeNotice);
+if(noticeSukses != null){
+    noticeClose.addEventListener("click",closeNotice);
 
-function closeNotice(){
-    noticeKomentar.setAttribute("style","display:none;");
+    function closeNotice(){
+        noticeSukses.setAttribute("style","display:none;");
+    }
 }

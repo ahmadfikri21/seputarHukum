@@ -1,6 +1,6 @@
 <?php
-    include_once("function/koneksi.php");
-    include_once("function/helper.php");
+    include_once("../function/koneksi.php");
+    include_once("../function/helper.php");
 
     $id_artikel = $_GET['id_artikel'];
     $nama = $_POST['nama'];

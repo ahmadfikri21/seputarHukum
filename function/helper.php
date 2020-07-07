@@ -12,7 +12,54 @@
                $batasAkhir = strrpos($stringCut, " ");
 
                $string = $batasAkhir ? substr($stringCut, 0, $batasAkhir): substr($stringCut, 0);
-               return $string;
+               return $string."...";
+          }else{
+               return $string." ";
+          }
+     }
+
+     function admin_only($level){
+          if(!$level){
+               header("location:".BASE_URL);
+           }
+     }
+
+     function pagination($resultH, $data_per_halaman, $pagination, $url){
+          $totalData = count($resultH);
+          $total_halaman = ceil($totalData/$data_per_halaman);
+
+          $batasPosisiNomor = 6;
+          $batasJumlahHalaman = 10;
+          $mulaiPagination = 1;
+          $batasAkhirPagination = $total_halaman;
+
+          if($pagination>1){
+               $prev = $pagination-1;
+               echo "<a href='".BASE_URL."$url&pagination=$prev' class='pagination-links'><< Prev</a>";
+          }
+
+          if($total_halaman >= $batasJumlahHalaman){
+               if($pagination > $batasPosisiNomor){
+                    $mulaiPagination = $pagination - ($batasPosisiNomor-1);
+               }
+     
+               $batasAkhirPagination = ($mulaiPagination - 1) + $batasJumlahHalaman;
+               if($batasAkhirPagination > $total_halaman){
+                    $batasAkhirPagination = $total_halaman;
+               }
+          }
+
+          for($i=$mulaiPagination;$i<=$batasAkhirPagination;$i++){
+               if($pagination == $i){
+                    echo "<a href='".BASE_URL."$url&pagination=$i' class='pagination-links active-pagination'>$i</a>";
+               }else{
+                    echo "<a href='".BASE_URL."$url&pagination=$i' class='pagination-links'>$i</a>";
+               }
+          }
+
+          if($pagination < $total_halaman){
+               $next = $pagination+1;
+               echo "<a href='".BASE_URL."$url&pagination=$next' class='pagination-links'>Next >></a>";
           }
      }
 ?>

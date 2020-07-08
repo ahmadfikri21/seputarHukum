@@ -3,7 +3,8 @@
 
     $notice = isset($_GET['notice']) ? $_GET['notice'] : false;
     $pagination = isset($_GET['pagination']) ? $_GET['pagination'] : 1;
-    
+    $cari = isset($_GET['cari']) ? $_GET['cari'] : false;
+
     // pagination
     $data_per_halaman = 5;
     $mulai_dari = ($pagination - 1) * $data_per_halaman;
@@ -19,16 +20,23 @@
     <div class="header-data-artikel">
         <?= $noticeKomentar ?>    
         <h2>Data Artikel</h2>
-        <form action="<?= BASE_URL.'proses/search_artikel.php' ?>" method="get">
+        <form action="<?= BASE_URL.'index.php?page=data_artikel' ?>" method="get">
             <div class="element-form">
                 <label>Cari</label>
-                <span><input type="text" name="cari" placeholder="Cari"><input type="submit" value="Cari"></span>
+                <input type="hidden" name="page" value="<?= $_GET['page'] ?>">
+                <span><input type="text" name="cari" value="<?= $cari ?>" placeholder="Cari"><input type="submit" value="Cari"></span>
             </div>
         </form>
     </div>
     <section class='frame-list-artikel'>
         <?php
-            $statementArtikel = $conn->prepare("SELECT artikel.*,kategori.kategori FROM artikel JOIN kategori ON kategori.id_kategori = artikel.id_kategori ORDER BY artikel.tgl_dibuat DESC LIMIT $mulai_dari, $data_per_halaman ");
+            $search_url = "";
+            $where = "";
+            if($cari){
+                $search_url = "&cari=$cari";
+                $where = "WHERE artikel.judul LIKE '%$cari%' OR artikel.penulis LIKE '%$cari%' OR artikel.tgl_dibuat LIKE '%$cari%' OR kategori.kategori LIKE '%$cari%'";
+            }
+            $statementArtikel = $conn->prepare("SELECT artikel.*,kategori.kategori FROM artikel JOIN kategori ON kategori.id_kategori = artikel.id_kategori $where ORDER BY artikel.tgl_dibuat DESC LIMIT $mulai_dari, $data_per_halaman ");
             $statementArtikel->execute();
             $result = $statementArtikel->fetchAll(PDO::FETCH_ASSOC);
 
@@ -46,14 +54,14 @@
             <?php
             }
             else:
-                echo "Kategori masih kosong";
+                echo "Data tidak ditemukan";
             endif;
 
             // untuk menampilkan link pagination
-            $statementHitungArtikel = $conn->prepare("SELECT artikel.*,kategori.kategori FROM artikel JOIN kategori ON kategori.id_kategori = artikel.id_kategori ORDER BY artikel.tgl_dibuat DESC");
+            $statementHitungArtikel = $conn->prepare("SELECT artikel.*,kategori.kategori FROM artikel JOIN kategori ON kategori.id_kategori = artikel.id_kategori $where ORDER BY artikel.tgl_dibuat DESC");
             $statementHitungArtikel->execute();
             $resultH = $statementHitungArtikel->fetchAll(PDO::FETCH_ASSOC);
-            $url = "index.php?page=data_artikel";
+            $url = "index.php?page=data_artikel$search_url";
 
             pagination($resultH, $data_per_halaman, $pagination, $url);
 

@@ -33,7 +33,7 @@
                 <form action="<?= BASE_URL.'proses_login.php' ?>" method="POST">
                     <div class='element-form'>
                         <label>E-mail</label>
-                        <span><input type="text" name='email' placeholder='E-mail'></span>
+                        <span><input type="email" name='email' placeholder='E-mail'></span>
                     </div>
                     <div class='element-form'>
                         <label>Password</label>

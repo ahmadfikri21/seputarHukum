@@ -56,7 +56,7 @@
                 foreach($result as $row){
                     echo "<tr>
                             <td>$no</td>
-                            <td>$row[kategori]</td>
+                            <td><a href='".BASE_URL."index.php?page=data_artikel&id_kategori=$row[id_kategori]&kategori=$row[kategori]' class='refer-link-green'>$row[kategori]</a></td>
                             <td>$row[klasifikasi]</td>";
                             ?>
                             <td><a href="<?= BASE_URL.'proses/hapus_kategori.php?id_kategori='.$row['id_kategori'].'' ?>" class='button-hapus' onclick="return confirm('Apakah Anda yakin? jika anda menghapus kategori ini, maka artikel yang memiliki kategori ini akan dihapus')">Hapus</a><a href="<?= BASE_URL.'index.php?page=form_kategori&button=edit&id_kategori='.$row['id_kategori'].'' ?>" class='button-readmore'>Edit</a></td>

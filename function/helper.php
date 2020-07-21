@@ -3,7 +3,7 @@
 
      function potongParagraf($string,$limitParagraf){
           // menghilangkan tag yang ada di string
-          $string = strip_tags($string);
+          $string = strip_tags($string,"<p>");
           // mengecek apakah karakter string lebih panjang dari limit
           if(strlen($string) > $limitParagraf){
                //memotong string sesuai dengan jumlah limit
@@ -61,5 +61,28 @@
                $next = $pagination+1;
                echo "<a href='".BASE_URL."$url&pagination=$next' class='pagination-links'>Next >></a>";
           }
+     }
+
+     function formKomentar($id_artikel,$id_komentar,$i,$display){
+          ?>
+          <form action="<?= BASE_URL.'proses/proses_komentar.php?id_artikel='.$id_artikel.'' ?>" method="POST" class="form-reply" id='toggle<?= $i ?>' style="<?= "display:$display;" ?>">
+               <input type="hidden" name="parent_komentar" value="<?= $id_komentar ?>">
+                    <div class='element-form'>
+                         <label>Nama</label>
+                         <span><input type="text" name='nama' placeholder='Nama'></span>
+                    </div>
+                    <div class='element-form'>
+                         <label>E-Mail</label>
+                         <span><input type="text" name='email' placeholder='E-Mail'></span>
+                    </div>
+                    <div class='element-form'>
+                         <label>Komentar</label>
+                         <span><textarea name='komentar' placeholder='Komentar' rows="4px"></textarea></span>
+                    </div>
+                    <div class='element-form'>
+                         <span><input type="submit" value="Balas" name='btn-komentar'></span>
+                    </div>
+          </form>
+          <?php
      }
 ?>

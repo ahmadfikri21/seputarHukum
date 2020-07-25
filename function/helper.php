@@ -69,15 +69,15 @@
                <input type="hidden" name="parent_komentar" value="<?= $id_komentar ?>">
                     <div class='element-form'>
                          <label>Nama</label>
-                         <span><input type="text" name='nama' placeholder='Nama'></span>
+                         <span><input type="text" name='nama' placeholder='Nama' required></span>
                     </div>
                     <div class='element-form'>
                          <label>E-Mail</label>
-                         <span><input type="text" name='email' placeholder='E-Mail'></span>
+                         <span><input type="email" name='email' placeholder='E-Mail' required></span>
                     </div>
                     <div class='element-form'>
                          <label>Komentar</label>
-                         <span><textarea name='komentar' placeholder='Komentar' rows="4px"></textarea></span>
+                         <span><textarea name='komentar' placeholder='Komentar' rows="4px" required></textarea></span>
                     </div>
                     <div class='element-form'>
                          <span><input type="submit" value="Balas" name='btn-komentar'></span>

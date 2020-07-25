@@ -10,7 +10,7 @@
     </div>
     <div class="frame-home">
         <div class="kiri">
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et ad dolores, voluptate sunt repellendus rerum ut, laboriosam adipisci nemo corporis culpa dolore veniam ducimus id nobis earum. Aut, neque? Illo delectus nulla doloribus iusto quidem laborum, ullam animi aspernatur odio beatae dicta impedit officia debitis fuga? Reprehenderit, magni. Voluptas, quis error, et maiores dolore ullam consequatur blanditiis delectus quas ut perspiciatis sapiente aspernatur earum itaque fuga culpa aperiam provident cupiditate minima distinctio. Quidem suscipit natus quaerat eligendi? Impedit, repudiandae consequatur tenetur culpa inventore eius quisquam quam numquam eveniet. Vero modi dolorem molestias illum minima, corrupti eaque quo voluptatem. Voluptas, perspiciatis?</p>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et ad dolores, voluptate sunt repellendus rerum ut, laboriosam adipisci nemo corporis culpa dolore veniam ducimus id nobis earum. Aut.</p>
         </div>
         <div class="kanan">
             <h3>Artikel Terbaru</h3>

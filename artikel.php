@@ -29,37 +29,8 @@
 </div>
 <div class="container">
     <?= $noticeKomentar ?>
-    <div class="frame-home">
-        <div class="kiri">
-            <p><?= $result['isi'] ?></p>
-        </div>
-        <div class="kanan">
-        <h3>Artikel Terbaru</h3>
-            <?php
-                $statement = $conn->prepare("SELECT *FROM artikel ORDER BY tgl_dibuat DESC LIMIT 3");
-                $statement->execute();
-                $result = $statement->fetchAll(PDO::FETCH_ASSOC); 
-
-                if(count($result) == 0){
-                    echo "Tidak ada artikel terbaru";
-                }else{
-                    $statementKategori = "";
-                    foreach($result as $row){
-                        $statementKategori = $conn->prepare("SELECT kategori FROM kategori WHERE id_kategori = '$row[id_kategori]'");
-                        $statementKategori->execute();
-                        $kategori = $statementKategori->fetch();
-
-                        echo "<ul class='list-artikel-terbaru'>
-                                <li><a href='".BASE_URL."index.php?page=artikel&id_artikel=$row[id_artikel]' class='list-judul'>$row[judul]</a></i>
-                                <li>Diposting pada : $row[tgl_dibuat]</li>
-                                <li>Kategori <a href='".BASE_URL."index.php?page=list_artikel&id_kategori=$row[id_kategori]&kategori=$kategori[kategori]'>$kategori[kategori]</a></i>
-                                <li>Penulis $row[penulis]</i>
-                            </ul>";
-                    }
-                }
-
-            ?>
-        </div>
+    <div class="container frame-artikel">
+        <p><?= $result['isi'] ?></p>
     </div>
 </div>
 <div class="frame-komentar">
@@ -108,18 +79,18 @@
         <form action="<?= BASE_URL.'proses/proses_komentar.php?id_artikel='.$id_artikel.'' ?>" method="POST">
             <div class='element-form'>
                 <label>Nama</label>
-                <span><input type="text" name='nama' placeholder='Nama'></span>
+                <span><input type="text" name='nama' placeholder='Nama' required></span>
             </div>
             <div class='element-form'>
                 <label>E-Mail</label>
-                <span><input type="text" name='email' placeholder='E-Mail'></span>
+                <span><input type="email" name='email' placeholder='E-Mail' required></span>
             </div>
             <div class='element-form'>
                 <label>Komentar</label>
-                <span><textarea name='komentar' placeholder='Komentar' rows="3px"></textarea></span>
+                <span><textarea name='komentar' placeholder='Komentar' rows="3px" required></textarea></span>
             </div>
             <div class='element-form'>
-                <span><input type="submit" value="Tambah Komentar" name='btn-komentar'></span>
+                <span><input type="submit" id="submitKomentar" value="Tambah Komentar" name='btn-komentar'></span>
             </div>
         </form>
     </div>
@@ -131,18 +102,7 @@
 ?>
 
 <script>
-    // function showReplyForm(i){
-    //     let element = document.querySelector(".form-reply");
-        
-    //     console.log(element);
-    //     if(element.style.display === "none"){
-    //         element.style.display = "block";
-    //     }else{
-    //         element.style.display = "none";
-    //     }
-        
-    // }
-   
+
     function showReply(j){
         let replyClick = document.querySelector(".show-reply");
         let element = document.querySelectorAll("#toggle"+j);

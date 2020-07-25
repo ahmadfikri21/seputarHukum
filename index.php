@@ -19,7 +19,8 @@
 </head>
 <body>
     <header id="header">
-        <a href="<?= BASE_URL ?>"><h1><i>seputar</i><strong>Hukum</strong></h1></a> 
+        <a href="<?= BASE_URL ?>"><h1><i>seputar</i><strong>Hukum</strong></h1></a>
+        <a class="burger-menu">+</a> 
     </header>
     <nav id="navbar">
         <ul id="nav-list">
@@ -51,6 +52,18 @@
     <script src="https://cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
     <script>
         CKEDITOR.replace("editor");
+            
+        $(document).ready(function(){
+            $(".burger-menu").on("click",function(){
+                $("#navbar").toggleClass("open");
+                if($(".burger-menu").html() == "+"){
+                    $(".burger-menu").html("-");
+                }else{
+                    $(".burger-menu").html("+");
+                }
+            });
+        });
+    
     </script>
 </body>
 </html>

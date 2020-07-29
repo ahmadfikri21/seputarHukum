@@ -44,7 +44,7 @@
                             <label>$row[judul]</label>
                             <label>$row[tgl_dibuat]</label>
                             <label>$row[penulis]</label>
-                            <p>".potongParagraf($row['isi'],500)."<a href='".BASE_URL."index.php?page=artikel&id_artikel=$row[id_artikel]' class='link-readmore'><strong>Baca Selengkapnya</strong></a></p>
+                            <p>".potongParagraf($row['isi'],500)."<a href='".BASE_URL."artikel/$row[id_artikel]/$row[judul]' class='link-readmore'><strong>Baca Selengkapnya</strong></a></p>
                             <span></span>
                             </div>";
                 }
@@ -53,7 +53,7 @@
                 <div class="container">
                     <div class='not-found'>
                         <h1>Maaf, Kategori masih Kosong !</h1>
-                        <a href="<?= BASE_URL.'index.php?page=kategori'?>" class='button-kembali'>Kembali ke halaman sebelumnya</a>
+                        <a href="<?= BASE_URL.'kategori'?>" class='button-kembali'>Kembali ke halaman sebelumnya</a>
                     </div>
                 </div>
             <?php 

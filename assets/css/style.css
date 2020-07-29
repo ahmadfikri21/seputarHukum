@@ -242,7 +242,7 @@
 
 #navbar ul li{
     display: inline;
-    margin: 75px;
+    margin: 50px;
 }
 
 #navbar ul li a{
@@ -282,6 +282,7 @@
 .frame-home .kiri p{
     font-size: 20px;
     text-indent: 50px;
+    margin-bottom: 10px;
 }
 
 .frame-home .kiri h1{

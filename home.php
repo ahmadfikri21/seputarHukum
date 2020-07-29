@@ -1,4 +1,13 @@
+<?php
+    $notice = isset($_GET['notice']) ? $_GET['notice'] : false;
+
+    $noticeKomentar = "";
+    if($notice == "Edit_berhasil"){
+        $noticeKomentar = "<div class='notice notice-sukses'><p>Informasi berhasil Diedit!</p><span class='notice-close'>x</span></div>";
+    }
+?>
 <div class="container">
+    <?= $noticeKomentar ?> 
     <h1 style="font-weight:normal;">Selamat Datang di <i>seputar</i>Hukum</h1>
     <div id="slider">
         <div class="box">
@@ -8,9 +17,18 @@
         <button class="next" onclick="nextSlide()">></button>
         <p class="slider-desc">Slide 1</p>
     </div>
+    <?php
+        $statementInformasi = $conn->prepare("SELECT * FROM informasi");
+        $statementInformasi->execute();
+        $result = $statementInformasi->fetch(PDO::FETCH_ASSOC);
+    ?>
     <div class="frame-home">
         <div class="kiri">
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et ad dolores, voluptate sunt repellendus rerum ut, laboriosam adipisci nemo corporis culpa dolore veniam ducimus id nobis earum. Aut.</p>
+            <p><?= $result['isi'] ?></p>
+            <?php if($level): ?>
+                <br>
+                <a href="<?= BASE_URL.'index.php?page=form_informasi&id_informasi='.$result['id_informasi'].'' ?>" class="button-edit">Edit Informasi</a>
+            <?php endif; ?>
         </div>
         <div class="kanan">
             <h3>Artikel Terbaru</h3>
@@ -29,9 +47,9 @@
                         $kategori = $statementKategori->fetch();
 
                         echo "<ul class='list-artikel-terbaru'>
-                                <li><a href='".BASE_URL."index.php?page=artikel&id_artikel=$row[id_artikel]' class='list-judul'>$row[judul]</a></i>
+                                <li><a href='".BASE_URL."artikel/$row[id_artikel]/$row[judul]' class='list-judul'>$row[judul]</a></i>
                                 <li>Diposting pada : $row[tgl_dibuat]</li>
-                                <li>Kategori <a href='".BASE_URL."index.php?page=list_artikel&id_kategori=$row[id_kategori]&kategori=$kategori[kategori]'>$kategori[kategori]</a></i>
+                                <li>Kategori <a href='".BASE_URL."list_artikel/$row[id_kategori]/$kategori[kategori]'>$kategori[kategori]</a></i>
                                 <li>Penulis $row[penulis]</i>
                             </ul>";
                     }

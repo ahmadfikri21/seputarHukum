@@ -21,7 +21,7 @@
         }else{
             echo "<div class='container'>";
             foreach($result as $row){
-                echo "<span class='box-kategori'><a href='".BASE_URL."index.php?page=list_artikel&id_kategori=".$row['id_kategori']."&kategori=".$row['kategori']."'>$row[kategori]</a></span><br>";
+                echo "<span class='box-kategori'><a href='".BASE_URL."list_artikel/".$row['id_kategori']."/".$row['kategori']."'>$row[kategori]</a></span><br>";
             }
             echo "</div>";
         }

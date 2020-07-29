@@ -1,0 +1,10 @@
+RewriteEngine on
+
+RewriteCond %{REQUEST_FILENAME} !-d 
+
+RewriteCond %{REQUEST_FILENAME}\.php -f  
+
+RewriteRule ^kategori index.php?page=kategori [NC,L]
+RewriteRule ^about_us index.php?page=about_us [NC,L]
+RewriteRule ^list_artikel/([0-9]+)/([^/]*) index.php?page=list_artikel&id_kategori=$1&kategori=$2 [L]
+RewriteRule ^artikel/([0-9]+)/([^/]*) index.php?page=artikel&id_artikel=$1&judul=$2 [NC,L]

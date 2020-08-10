@@ -11,6 +11,8 @@
     $noticeKomentar = "";
     if($notice == "hapus-sukses"){
         $noticeKomentar = "<div class='notice notice-sukses'><p>Komentar Berhasil Dihapus !</p><span class='notice-close'>x</span></div>";
+    }else if($notice == "nothing-selected"){
+        $noticeKomentar = "<div class='notice notice-warning'><p>Tolong pilih minimal 1 data</p><span class='notice-close'>x</span></div>";
     }
 ?>
 <div class="container">
@@ -34,7 +36,8 @@
                 <th>Email</th>
                 <th>Komentar</th>
                 <th>Tanggal Komentar</th>
-                <th>Aksi</th>
+                <th>Pilih</th>
+                <!-- <th>Aksi</th> -->
             </tr>
             <?php
                 $search_url = "";
@@ -56,16 +59,19 @@
                             <td>$row[nama]</td>
                             <td>$row[email]</td>
                             <td>$row[komentar]</td>
-                            <td>$row[tgl_dibuat]</td> ";
-                            ?>
-                                <td><a href="<?= BASE_URL.'proses/hapus_komentar.php?id_komentar='.$row['id_komentar'].'' ?>" class='button-hapus' onclick="return confirm('Apakah anda yakin?')">Hapus</a>
-                                </tr>
-                            <?php
+                            <td>$row[tgl_dibuat]</td> 
+                            <td>
+                                <form method='post' action='".BASE_URL."proses/hapus_komentar.php'>
+                                    <input type='checkbox' name='selected[]' value='$row[id_komentar]'>
+                            </td>";
                     $no++;
                 }
                 
             ?>
         </table>
+                <input type="submit" value="Hapus Pilihan" class="hapus-pilihan" onclick="return confirm('Apakah anda yakin?')">
+            
+        </form> <!-- Penutup form hapus pilihan -->
         <?php
             $statementHitungKomentar = $conn->prepare("SELECT komentar.*,artikel.judul FROM komentar JOIN artikel ON komentar.id_artikel = artikel.id_artikel $where ORDER BY komentar.tgl_dibuat DESC");
             $statementHitungKomentar->execute();

@@ -4,6 +4,7 @@
     $button = isset($_GET['button']) ? $_GET['button'] : false;
 
     $result['kategori'] = "";
+    $result['deskripsi'] = "";
     $result['klasifikasi'] = "";
     if($button == "edit"){
         $statement = $conn->prepare("SELECT*FROM kategori WHERE id_kategori=:id_kategori");
@@ -21,8 +22,20 @@
             <span><input type="text" name='kategori' placeholder='Nama Kategori' value='<?= $result['kategori'] ?>'></span>
         </div>
         <div class='element-form'>
+            <label>Deskripsi Kategori</label>
+            <span><input type="text" name='deskripsi' placeholder='Deskripsi Kategori' value='<?= $result['deskripsi'] ?>'></span>
+        </div>
+        <div class='element-form'>
             <label>Klasifikasi</label>
-            <span><input type="text" name='klasifikasi' placeholder='Klasifikasi' value='<?= $result['klasifikasi'] ?>'></span>
+            <span>
+                <select name="klasifikasi">
+                    <option value="">Pilih Klasifikasi</option>
+                    <option value="Pengantar Hukum">Pengantar Hukum</option>
+                    <option value="Hukum Perdata">Hukum Perdata</option>
+                    <option value="Hukum Agraria">Hukum Agraria</option>
+                    <option value="Hukum Dagang">Hukum Dagang</option>
+                </select>
+            </span>
         </div>
         <div class="element-form">
             <span><input type="submit" value="<?= ucwords($button) ?>" name="button"></span>

@@ -9,6 +9,7 @@
     $penulis = "";
     $id_kategori = "";
     $isi = "";
+    $deskripsi = "";
     if($button == "edit"){
         $heading = "Edit Artikel";
 
@@ -22,6 +23,7 @@
         $penulis = $result['penulis'];
         $id_kategori = $result['id_kategori'];
         $isi = $result['isi'];
+        $deskripsi = $result['deskripsi'];
     }else if($button = "tambah"){
         $heading = "Tulis Artikel Baru";
     }
@@ -33,6 +35,10 @@
         <div class='element-form'>
             <label>Judul Artikel</label>
             <span><input type="text" name='judul' placeholder='Judul Artikel' value="<?= $judul ?>"></span>
+        </div>
+        <div class='element-form'>
+            <label>Deskripsi Artikel</label>
+            <span><input type="text" name='deskripsi' placeholder='Deskripsi Artikel' value="<?= $deskripsi ?>"></span>
         </div>
         <div class='element-form'>
             <label>Penulis</label>

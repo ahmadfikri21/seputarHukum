@@ -43,6 +43,10 @@
     background: #207DFF;
 }
 
+.notice-close{
+    cursor: pointer;
+}
+
 .notice-sukses{
     background: #88F2B8;
     color: #1A472F;
@@ -64,6 +68,18 @@
 }
 
 .notice-gagal p{
+    flex: 1;
+}
+
+.notice-warning{
+    background: orange;
+    color: orangered;
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: row;
+}
+
+.notice-warning p{
     flex: 1;
 }
 
@@ -383,6 +399,9 @@
     font-size: 20px;
     text-indent: 50px;
     text-align: justify;
+    line-height: 30px;
+    padding : 10px;
+    word-wrap: break-word;
 }
 
 .header-page{
@@ -458,6 +477,32 @@
 }
 
 /* ====== list Artikel ====== */
+.checkbox-artikel{
+    position: relative;
+    text-align: center;
+}
+
+.hapus-pilihan{
+    padding:10px; 
+    background:red; 
+    color:white; 
+    border:none; 
+    border-radius:5px; 
+    cursor:pointer; 
+    float:right;
+}
+
+.checkbox-artikel input{
+    position: absolute;
+    top: 25%;
+    width: 50px;
+    height: 50px;
+}
+
+.box-artikel-data{
+    display: grid;
+    grid-template-columns: 90% 10%;
+}
 
 .box-artikel{
     padding: 10px;
@@ -615,6 +660,20 @@
 
 @media screen and (max-width:425px){
     /* index.php */
+    .sticky{
+        position: fixed;
+        width: 100%;
+        top: 0;
+    }
+
+    .sticky + .header-page{
+        padding-top: 60px;
+    }
+
+    .sticky + h1{
+        padding-top:60px;
+    }
+
     .frame-artikel{
         text-indent: 0px;
     }

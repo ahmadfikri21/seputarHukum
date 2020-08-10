@@ -18,6 +18,8 @@
         $noticeKomentar = "<div class='notice notice-sukses'><p>Artikel berhasil dihapus!</p><span class='notice-close'>x</span></div>";
     }else if($notice == "Edit_berhasil"){
         $noticeKomentar = "<div class='notice notice-sukses'><p>Artikel berhasil Diedit!</p><span class='notice-close'>x</span></div>";
+    }else if($notice == "nothing-selected"){
+        $noticeKomentar = "<div class='notice notice-warning'><p>Minimal harus ada 1 pilihan</p><span class='notice-close'>x</span></div>";
     }
 ?>
 <div class="container">
@@ -58,23 +60,44 @@
             $statementArtikel->execute();
             $result = $statementArtikel->fetchAll(PDO::FETCH_ASSOC);
 
+            $boxClass = "";
+            if($level){
+                $boxClass = "box-artikel-data";
+            }
             if(count($result) != 0):
             foreach($result as $row){
-                echo "<div class='box-artikel'>
-                        <label>$row[judul]</label>
-                        <label>$row[tgl_dibuat]</label>
-                        <label>$row[penulis]</label>
-                        <p>".potongParagraf($row['isi'],500)."</p>
+                echo "<div class='$boxClass'>
+                        <div class='box-artikel'>
+                            <label>$row[judul]</label>
+                            <label>$row[tgl_dibuat]</label>
+                            <label>$row[penulis]</label>
+                            <p>".potongParagraf($row['isi'],500)."</p>
                         ";
                         ?>
-                        <span>
-                            <a href="<?= BASE_URL.'index.php?page=artikel&id_artikel='.$row['id_artikel'].'' ?>" class='button-readmore'>Selengkapnya</a>
-                            <a href="<?= BASE_URL.'index.php?page=tulis_artikel&id_artikel='.$row['id_artikel'].'&button=edit' ?>" class="button-edit">Edit Artikel</a>
-                            <a href="<?= BASE_URL.'proses/hapus_artikel.php?id_artikel='.$row['id_artikel'].'' ?>" class='button-hapus' onclick="return confirm('Apakah Anda yakin?')">Hapus Artikel</a>
-                        </span>
+                            <span>
+                                <a href="<?= BASE_URL.'index.php?page=artikel&id_artikel='.$row['id_artikel'].'' ?>" class='button-readmore'>Selengkapnya</a>
+                                <a href="<?= BASE_URL.'index.php?page=tulis_artikel&id_artikel='.$row['id_artikel'].'&button=edit' ?>" class="button-edit">Edit Artikel</a>
+                                <a href="<?= BASE_URL.'proses/hapus_artikel.php?id_artikel='.$row['id_artikel'].'' ?>" class='button-hapus' onclick="return confirm('Apakah Anda yakin? (komentar yang ada di artikel ini juga akan dihapus)')">Hapus Artikel</a>
+                            </span>
                         </div>
+                        <div class="checkbox-artikel">
+                            <form action="<?= BASE_URL.'proses/hapus_artikel.php' ?>" method="POST">
+                                <input type="checkbox" name="selected[]" value="<?= $row['id_artikel'] ?>">
+                        </div>
+                    </div>
             <?php
             }
+            // untuk menampilkan link pagination
+            $statementHitungArtikel = $conn->prepare("SELECT artikel.*,kategori.kategori FROM artikel JOIN kategori ON kategori.id_kategori = artikel.id_kategori $where ORDER BY artikel.tgl_dibuat DESC");
+            $statementHitungArtikel->execute();
+            $resultH = $statementHitungArtikel->fetchAll(PDO::FETCH_ASSOC);
+            $url = "index.php?page=data_artikel$search_url";
+
+            pagination($resultH, $data_per_halaman, $pagination, $url);
+            ?>
+                <input type="submit" name="delete" class="hapus-pilihan" value="Hapus Pilihan" onclick="return confirm('Apakah anda yakin? (komentar yang ada di artikel ini juga akan dihapus)')">
+            </form>
+            <?php
             else:
                 ?>
                 <div class="container">
@@ -85,14 +108,6 @@
                 </div>
                 <?php
             endif;
-            
-            // untuk menampilkan link pagination
-            $statementHitungArtikel = $conn->prepare("SELECT artikel.*,kategori.kategori FROM artikel JOIN kategori ON kategori.id_kategori = artikel.id_kategori $where ORDER BY artikel.tgl_dibuat DESC");
-            $statementHitungArtikel->execute();
-            $resultH = $statementHitungArtikel->fetchAll(PDO::FETCH_ASSOC);
-            $url = "index.php?page=data_artikel$search_url";
-
-            pagination($resultH, $data_per_halaman, $pagination, $url);
 
             ?>
         

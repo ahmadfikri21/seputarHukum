@@ -25,7 +25,7 @@
     <div class="background-login">
         <div class="container-login">
             <header class='header-login'>
-                <h1><a href="<?= BASE_URL ?>"><h1><i>seputar</i><strong>Hukum</strong></h1></a></h1>
+                <h1><a href="<?= BASE_URL.'home' ?>"><h1><i>seputar</i><strong>Hukum</strong></h1></a></h1>
             </header>
             <div id="frame-login">
                 <h2>Login Admin</h2>

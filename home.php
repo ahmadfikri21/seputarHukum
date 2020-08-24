@@ -50,7 +50,6 @@
                                 <li><a href='".BASE_URL."artikel/$row[id_artikel]/$row[judul]' class='list-judul'>$row[judul]</a></i>
                                 <li>Diposting pada : $row[tgl_dibuat]</li>
                                 <li>Kategori <a href='".BASE_URL."list_artikel/$row[id_kategori]/$kategori[kategori]'>$kategori[kategori]</a></i>
-                                <li>Penulis $row[penulis]</i>
                             </ul>";
                     }
                 }

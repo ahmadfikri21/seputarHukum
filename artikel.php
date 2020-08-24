@@ -21,7 +21,6 @@
     <div class="container">
         <h2><?= $result['judul'] ?></h2>
         <ul>
-            <li><p>Penulis</p>  <?= $result['penulis'] ?></li>
             <li><p>Tanggal Diposting </p> <?= $result['tgl_dibuat'] ?></li>
             <li><p>Kategori </p> <?= $kategori['kategori'] ?></li>
         </ul>
@@ -102,6 +101,7 @@
 ?>
 
 <script>
+    preventRightClick();
 
     function showReply(j){
         let replyClick = document.querySelector(".show-reply");

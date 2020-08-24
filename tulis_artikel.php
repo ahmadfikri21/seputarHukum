@@ -6,7 +6,6 @@
 
     $heading = "";
     $judul = "";
-    $penulis = "";
     $id_kategori = "";
     $isi = "";
     $deskripsi = "";
@@ -20,7 +19,6 @@
         $result = $statementEdit->fetch(PDO::FETCH_ASSOC);
 
         $judul = $result['judul'];
-        $penulis = $result['penulis'];
         $id_kategori = $result['id_kategori'];
         $isi = $result['isi'];
         $deskripsi = $result['deskripsi'];
@@ -34,19 +32,15 @@
         <input type="hidden" name="id_artikel" value="<?= $id_artikel ?>">
         <div class='element-form'>
             <label>Judul Artikel</label>
-            <span><input type="text" name='judul' placeholder='Judul Artikel' value="<?= $judul ?>"></span>
+            <span><input type="text" name='judul' placeholder='Judul Artikel' value="<?= $judul ?>" required></span>
         </div>
         <div class='element-form'>
             <label>Deskripsi Artikel</label>
-            <span><input type="text" name='deskripsi' placeholder='Deskripsi Artikel' value="<?= $deskripsi ?>"></span>
-        </div>
-        <div class='element-form'>
-            <label>Penulis</label>
-            <span><input type="text" name='penulis' placeholder='Penulis' value="<?= $penulis ?>"></span>
+            <span><input type="text" name='deskripsi' placeholder='Deskripsi Artikel' value="<?= $deskripsi ?>" required></span>
         </div>
         <div class='element-form'>
             <label>Kategori</label>
-            <select name="kategori">
+            <select name="kategori" required>
                 <option value="">Pilih Kategori</option>
                 <?php
                     $statement = $conn->prepare("SELECT*FROM kategori");
@@ -72,3 +66,9 @@
         </div>
     </form>
 </div>
+<script src="<?= BASE_URL.'assets/js/tinymce/tinymce.min.js' ?>"></script>
+<script>
+      tinymce.init({
+        selector: '#editor'
+      });
+</script>

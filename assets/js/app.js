@@ -29,3 +29,15 @@ if(noticeSukses != null){
         
     }
 }
+
+function preventRightClick(){
+    $(document).ready(function(){
+        $("body").on("cut copy", function(e){
+            e.preventDefault();
+        });
+        $("body").on("contextmenu", function(e){
+            alert("Maaf, anda tidak dapat melakukan klik kanan di halaman ini");
+            return false;
+        });
+    });
+}

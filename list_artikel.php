@@ -42,9 +42,9 @@
                 foreach($result as $row){
                     echo "<div class='box-artikel'>
                             <label>$row[judul]</label>
-                            <label>$row[tgl_dibuat]</label>
-                            <label>$row[penulis]</label>
-                            <p>".potongParagraf($row['isi'],500)."<a href='".BASE_URL."artikel/$row[id_artikel]/$row[judul]' class='link-readmore'><strong>Baca Selengkapnya</strong></a></p>
+                            <label>Diupload pada : $row[tgl_dibuat]</label>
+                            <p>$row[deskripsi]</p>
+                            <a href='".BASE_URL."artikel/$row[id_artikel]/$row[judul]' class='link-readmore'><strong>Baca Selengkapnya</strong></a></p>
                             <span></span>
                             </div>";
                 }

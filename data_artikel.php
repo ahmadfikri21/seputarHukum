@@ -69,9 +69,8 @@
                 echo "<div class='$boxClass'>
                         <div class='box-artikel'>
                             <label>$row[judul]</label>
-                            <label>$row[tgl_dibuat]</label>
-                            <label>$row[penulis]</label>
-                            <p>".potongParagraf($row['isi'],500)."</p>
+                            <label>Diupload pada : $row[tgl_dibuat]</label>
+                            <p>$row[deskripsi]</p>
                         ";
                         ?>
                             <span>

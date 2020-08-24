@@ -17,6 +17,10 @@
     display: block;
 }
 
+.show-element{
+    display: block;
+}
+
 .element-form span{
     display: block;
 }
@@ -397,7 +401,6 @@
 /* ====== Artikel ====== */
 .frame-artikel{
     font-size: 20px;
-    text-indent: 50px;
     text-align: justify;
     line-height: 30px;
     padding : 10px;
@@ -654,6 +657,15 @@
     display: none;
     cursor: pointer;
     font-size: 20px;
+}
+
+.dropdown-kategori{
+    margin-left: 50px;
+    display: none;
+}
+
+#btn-dropdown-kategori{
+    cursor: pointer;
 }
 
 /* Responsive Mobile */

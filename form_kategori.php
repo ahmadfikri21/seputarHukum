@@ -25,18 +25,6 @@
             <label>Deskripsi Kategori</label>
             <span><input type="text" name='deskripsi' placeholder='Deskripsi Kategori' value='<?= $result['deskripsi'] ?>'></span>
         </div>
-        <div class='element-form'>
-            <label>Klasifikasi</label>
-            <span>
-                <select name="klasifikasi">
-                    <option value="">Pilih Klasifikasi</option>
-                    <option value="Pengantar Hukum">Pengantar Hukum</option>
-                    <option value="Hukum Perdata">Hukum Perdata</option>
-                    <option value="Hukum Agraria">Hukum Agraria</option>
-                    <option value="Hukum Dagang">Hukum Dagang</option>
-                </select>
-            </span>
-        </div>
         <div class="element-form">
             <span><input type="submit" value="<?= ucwords($button) ?>" name="button"></span>
         </div>

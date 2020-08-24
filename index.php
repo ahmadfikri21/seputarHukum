@@ -34,6 +34,7 @@
     <link rel="stylesheet" href="<?= BASE_URL.'assets/css/style.css' ?>">
     <link rel="icon" href="<?= BASE_URL.'assets/images/logo sH.png' ?>" type="image/icon type">
     <script src="<?= BASE_URL.'assets/js/jquery-3.5.1.min.js' ?>"></script>
+    <script src='<?= BASE_URL ."assets/js/app.js"?>'></script>
     <title>
         <?php 
             if($judul){ 
@@ -82,11 +83,8 @@
     <footer id="footer">
             <span>Copyright &copy; 2020 <i>seputar</i>Hukum </span>
     </footer>
-    <script src='<?= BASE_URL ."assets/js/app.js"?>'></script>
     <script src="https://cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
-    <script>
-        CKEDITOR.replace("editor");
-            
+    <script>            
         $(document).ready(function(){
             $(".burger-menu").on("click",function(){
                 $("#navbar").toggleClass("open");
